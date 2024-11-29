@@ -19,16 +19,31 @@ int main() {
 			  output[a][b]=inputText[word];
 			  word++;	
 			}
-			for(j=0;j<10;l++) {
-		        for(k=0;k<)
 			output[a][b] = '\0';
 			word=i+1;
 		    printf("%s\n", &output[a][0]);
 		    a++;
-		}
+		} 
 	} while(inputText[i] != '\0' && i<99);
-	//output
-	printf("word is %d Input length of %s is %d\n",word,inputText, i);
+	printf("%d\n",a);
+	//search
+	int row, verb, verbCounter=0;
+	for(row=0;row<a;row++) {
+		for(verb=0;verb<10;verb++) {
+			int columnCounter=0;
+			while (output[row][columnCounter] == verbs[verb][columnCounter]) {
+				if(output[row][columnCounter] == '\0') {
+					printf("Verb matched: %s\n", &output[row][0]);
+					verbCounter++;
+					verb=10;
+					break;	
+				}
+				columnCounter++;
+			}
+		}
 	}
+	//output
+	printf("Total verbs found: %d\n", verbCounter);
+	printf("word is %d Input length of %s is %d\n",word,inputText, i);
 	return 0;
 }
